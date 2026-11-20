@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <defs>
+    <!-- Polygonal White/Grey Geometric Facets (like official UL login background) -->
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f7a38"/>
+      <stop offset="100%" stop-color="#145926"/>
+    </linearGradient>
+    <linearGradient id="softLime" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8bc34a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1f7a38" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="680" height="420" rx="18" fill="#f7f9f7" stroke="#1f7a38" stroke-width="3"/>
+
+  <!-- Left Geometric Low-Poly Facets (Inspired by Official UL Portal Screenshot) -->
+  <polygon points="0,0 240,0 160,150 0,110" fill="#ffffff"/>
+  <polygon points="240,0 410,0 320,170 160,150" fill="#f1f4f1"/>
+  <polygon points="0,110 160,150 95,310 0,270" fill="#eaeeea"/>
+  <polygon points="160,150 320,170 260,340 95,310" fill="#f9fbf9"/>
+  <polygon points="0,270 95,310 260,340 210,420 0,420" fill="#eef2ee"/>
+
+  <!-- Green Curved Wave Separator on Right -->
+  <path d="M350,0 L680,0 L680,420 L330,420 Q290,210 350,0 Z" fill="url(#softLime)"/>
+  <path d="M390,0 L680,0 L680,420 L365,420 Q325,210 390,0 Z" fill="url(#greenGrad)"/>
+
+  <!-- Official Portal Preview Mockup Card Inside Banner -->
+  <rect x="40" y="38" width="335" height="344" rx="12" fill="#ffffff" stroke="#d5e2d8" stroke-width="2"/>
+  <!-- Top Green Header Bar of Mockup -->
+  <rect x="40" y="38" width="335" height="42" rx="10" fill="#1f7a38"/>
+  <circle cx="62" cy="59" r="6" fill="#f39019"/>
+  <text x="78" y="64" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">My Profile — BS Computer Science</text>
+
+  <!-- Grey Profile Banner Strip (Like Screenshot 3) -->
+  <rect x="54" y="92" width="307" height="72" rx="6" fill="#829182"/>
+  <text x="66" y="118" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">MUHAMMAD ABU BAKKAR NADEEM</text>
+  <text x="66" y="136" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#f1f8e9">Roll No: BSCSM-A-24-46 | Batch: 2024</text>
+  <text x="66" y="153" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#ffe082">✉ nabubakar021@gmail.com</text>
+
+  <!-- Academic Information Lines -->
+  <text x="56" y="188" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#1f7a38">ACADEMIC PORTAL MODULES</text>
+  <line x1="56" y1="194" x2="358" y2="194" stroke="#1f7a38" stroke-width="2"/>
+
+  <!-- Module Pills -->
+  <rect x="56" y="206" width="142" height="34" rx="6" fill="#eef7f0" stroke="#1f7a38" stroke-width="1"/>
+  <text x="127" y="227" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#1f7a38" text-anchor="middle">✓ Course Enrollment</text>
+
+  <rect x="212" y="206" width="146" height="34" rx="6" fill="#fff5e6" stroke="#f39019" stroke-width="1"/>
+  <text x="285" y="227" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#d97706" text-anchor="middle">★ Semester Results</text>
+
+  <rect x="56" y="250" width="142" height="34" rx="6" fill="#eef7f0" stroke="#1f7a38" stroke-width="1"/>
+  <text x="127" y="271" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#1f7a38" text-anchor="middle">✓ Time Table &amp; Labs</text>
+
+  <rect x="212" y="250" width="146" height="34" rx="6" fill="#eef7f0" stroke="#1f7a38" stroke-width="1"/>
+  <text x="285" y="271" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#1f7a38" text-anchor="middle">✓ Fee &amp; Scholarships</text>
+
+  <!-- Bottom Status Strip -->
+  <rect x="56" y="300" width="302" height="62" rx="8" fill="#1f7a38"/>
+  <text x="207" y="325" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">UNIVERSITY OF LAYYAH (EST. 2022)</text>
+  <text x="207" y="346" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#ffcc80" text-anchor="middle">Official Smart CMS &amp; Student Registration Portal</text>
+
+  <!-- Right Side Official UL Emblem Card (Like Screenshot 2 Login Box) -->
+  <rect x="425" y="45" width="220" height="330" rx="12" fill="#186a2f" stroke="#2e8b47" stroke-width="2"/>
+  <rect x="475" y="68" width="120" height="120" rx="8" fill="#ffffff"/>
+  
+  <!-- Mini UL Logo inside the Right Card -->
+  <text x="535" y="128" font-family="'Segoe UI', Arial, sans-serif" font-size="42" font-weight="900" fill="#F39019" text-anchor="middle">UL</text>
+  <text x="535" y="152" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="900" fill="#212121" text-anchor="middle">UNIVERSITY</text>
+  <text x="535" y="167" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="900" fill="#212121" text-anchor="middle">OF LAYYAH</text>
+  <text x="535" y="181" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="800" fill="#198744" text-anchor="middle">— 2022 —</text>
+
+  <!-- Portal Features List on Right Card -->
+  <line x1="450" y1="218" x2="620" y2="218" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="535" y="210" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">👤 STUDENT PORTAL ACCESS</text>
+
+  <line x1="450" y1="255" x2="620" y2="255" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="535" y="247" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#e8f5e9" text-anchor="middle">✉ Official UOL Campus Connect</text>
+
+  <line x1="450" y1="292" x2="620" y2="292" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="535" y="284" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#ffcc80" text-anchor="middle">🔒 Verified LocalStorage Record</text>
+
+  <rect x="445" y="318" width="180" height="38" rx="6" fill="#114b20"/>
+  <text x="535" y="342" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">ACTIVE PORTAL</text>
+</svg>

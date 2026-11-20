@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Layyah (UL) - Official Student Portal</title>
+  <!-- Task 3: Bootstrap 5.3 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Task 2: External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Top Utility Bar: Live Real-Time Clock + Dark/Light Mode Switch -->
+  <div id="top-bar" class="py-2 px-3">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="small fw-semibold">
+        <span>🏛️ University of Layyah (Est. 2022) | Official Student Portal</span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <!-- Task 4 (#1): Display Current Date and Time -->
+        <span id="liveDateTime" class="small fw-bold">Loading date &amp; time...</span>
+        <!-- Task 4 (#3): Dark / Light Mode Toggle Button -->
+        <button id="themeToggleBtn" class="btn btn-sm uol-btn-orange py-1 px-3" type="button">
+          🌙 Dark Mode
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task 1, Task 2 & Task 3: Semantic <header> + Sticky Responsive Bootstrap 5 <nav> -->
+  <header id="main-header" class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark uol-navbar" aria-label="Main University Navigation">
+      <div class="container">
+        <!-- University Logo & Name (Image with alt text) -->
+        <a class="navbar-brand d-flex align-items-center gap-3" href="#home">
+          <img src="images/uol-logo.svg" alt="University of Layyah Official UL 2022 Emblem Logo" width="52" height="52"
+            class="rounded bg-white p-1 shadow-sm">
+          <div>
+            <span class="fw-bold d-block fs-5 tracking-tight">UNIVERSITY OF LAYYAH</span>
+            <small class="d-block text-warning fw-semibold" style="font-size: 0.76rem;">Official Student Portal &amp;
+              CMS</small>
+          </div>
+        </a>
+
+        <!-- Mobile Hamburger Button (Task 5: Collapses on smaller screens) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portalNavbar"
+          aria-controls="portalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Mandatory Navigation Links: Home, About, Courses, Registration, Applied Students, Contact -->
+        <div class="collapse navbar-collapse" id="portalNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#courses">Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#registration">Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#admin-dashboard">Applied Students (<span id="navAppliedCount">0</span>)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Task 1: Semantic <main> Container -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section py-5">
+      <div class="container">
+
+        <!-- Task 3: Bootstrap Alert for Important University Announcement -->
+        <div
+          class="alert alert-warning alert-dismissible fade show border-start border-4 border-success shadow-sm mb-4 fade-in-up"
+          role="alert">
+          <strong>📢 Fall 2026 Semester Enrollment Open:</strong> Welcome to the <em>University of Layyah</em> Student
+          Portal. Check the weekly class schedule, search courses, and complete your online course registration below.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- Hero Main Content Row -->
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7 fade-in-up">
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill uol-pill-badge mb-3">
+              <span>🎓 University Student Portal</span>
+            </div>
+            <!-- Task 4 (#2): Website Heading that changes when button is clicked -->
+            <h1 id="portalMainHeading" class="display-6 fw-bold mb-3">
+              Welcome to University of Layyah Student Portal
+            </h1>
+            <!-- Task 1: Text formatting tags (<strong>, <em>, <mark>, <u>) -->
+            <p class="lead mb-4">
+              Access the official <strong>University of Layyah (Est. 2022)</strong> academic portal.
+              Manage your <em>Student Profile, Weekly Class Schedule, Course Catalog</em>, and
+              <mark class="px-1">Online Semester Registration</mark> with <u>instant Admin Dashboard tracking</u>.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#registration" class="btn uol-btn-orange btn-lg px-4">📝 Register Now</a>
+              <a href="#courses" class="btn uol-btn-green btn-lg px-4">📚 Explore Courses</a>
+              <!-- Task 4 (#2): Button to change heading text dynamically -->
+              <button id="changeHeadingBtn" type="button" class="btn btn-outline-success btn-lg">
+                🔄 Switch Heading
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Demonstrates HTML5 <img> with non-existent src so browser visibly displays the alt text -->
+          <div class="col-lg-5 fade-in-up">
+            <div class="hero-emblem-card p-4 bg-white rounded-4 shadow-sm border text-center">
+              <!-- Task 1: Non-existent image path intentionally used so the alt text is visibly displayed on screen -->
+              <div class="p-3 mb-3 rounded-3 bg-light border border-dashed">
+                <img src="images/uol-main-campus-photo-not-found.jpg"
+                  alt="🏛️ [Alt Text Displayed]: University of Layyah Main Academic Campus &amp; Digital Student Portal View"
+                  class="img-fluid fw-semibold text-success">
+              </div>
+              <h2 class="h4 fw-bold text-success mb-1">UNIVERSITY OF LAYYAH</h2>
+              <p class="small text-muted mb-2">Government of the Punjab — Chartered Public University (Est. 2022)</p>
+              <span class="badge uol-badge-orange px-3 py-2">HEC Recognized Institution</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION (Semantic <section> + <article>, Lists, Flexbox Stats, Weekly Schedule Table with colspan & rowspan) -->
+    <section id="about" class="py-5 section-alt-bg">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title fw-bold">About University of Layyah &amp; Academic Schedule</h2>
+          <p class="text-muted">Excellence in Higher Education, Research Innovation, and Digital Student
+            Facilitation</p>
+        </div>
+
+        <!-- Task 2: Flexbox Layout (.uol-flex-highlights) for University Key Statistics -->
+        <div class="uol-flex-highlights mb-5">
+          <div class="highlight-box">
+            <h3 class="h3 fw-bold text-success mb-1">14+</h3>
+            <p class="small fw-semibold text-muted mb-0">Academic Departments</p>
+          </div>
+          <div class="highlight-box">
+            <h3 class="h3 fw-bold text-warning mb-1">4,800+</h3>
+            <p class="small fw-semibold text-muted mb-0">Enrolled Students</p>
+          </div>
+          <div class="highlight-box">
+            <h3 class="h3 fw-bold text-success mb-1">160+</h3>
+            <p class="small fw-semibold text-muted mb-0">PhD &amp; MPhil Teachers</p>
+          </div>
+          <div class="highlight-box">
+            <h3 class="h3 fw-bold text-warning mb-1">2022</h3>
+            <p class="small fw-semibold text-muted mb-0">Year Established (HEC)</p>
+          </div>
+        </div>
+
+        <!-- Semantic <article> Elements with Unordered (<ul>) and Ordered (<ol>) Lists -->
+        <div class="row g-4 mb-5">
+          <div class="col-md-6">
+            <article class="uol-panel h-100 p-4">
+              <h3 class="h4 fw-bold text-success mb-3">🏛️ University Vision &amp; Campus Facilities</h3>
+              <p>
+                The <strong>University of Layyah (UL)</strong> provides modern undergraduate and graduate programs
+                taught by <strong>foreign and local PhD/MPhil qualified faculty</strong> to empower students with
+                practical skills.
+              </p>
+              <h4 class="h6 fw-bold text-uppercase text-secondary mt-3">Core Campus Facilities (Unordered List):</h4>
+              <ul class="uol-list mb-0">
+                <li><strong>Smart Computing Labs:</strong> High-speed PERN fiber internet and modern workstations.</li>
+                <li><strong>Central Digital Library:</strong> Free student access to IEEE, Springer, and HEC digital
+                  books.</li>
+                <li><strong>Accessible Ground-Floor Halls:</strong> Dedicated ramp access and ground-floor rooms for
+                  disabled students.</li>
+                <li><strong>Student Facilitation Center:</strong> One-window support for ID cards, fee challans, and
+                  scholarships.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="col-md-6">
+            <article class="uol-panel h-100 p-4">
+              <h3 class="h4 fw-bold text-success mb-3">📋 Online Course Registration Guide</h3>
+              <p>
+                Follow these four sequential steps to complete your semester course enrollment on the University of
+                Layyah Student Portal:
+              </p>
+              <h4 class="h6 fw-bold text-uppercase text-secondary mt-3">Enrollment Procedure (Ordered List):</h4>
+              <ol class="uol-list mb-0">
+                <li>Review the <strong>Weekly Class Schedule Table</strong> below to check teacher names and timings.
+                </li>
+                <li>Browse or search available courses in the <strong>Courses Section</strong> (or add a new course).
+                </li>
+                <li>Complete all required fields in the <strong>Student Registration Form</strong>.</li>
+                <li>Check the <strong>Admin Applied Students Dashboard</strong> below to view your registered profile.
+                </li>
+              </ol>
+            </article>
+          </div>
+        </div>
+
+        <!-- Task 1 & Task 3: Detailed Weekly Class Schedule Table demonstrating BOTH rowspan and colspan -->
+        <div class="uol-panel p-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+            <div>
+              <h3 class="h4 fw-bold text-success mb-1">📅 Detailed Weekly Class Schedule &amp; Semester Timetable</h3>
+              <p class="small text-muted mb-0">Demonstrates HTML5 &amp; Bootstrap 5 table with both <code>rowspan</code>
+                and <code>colspan</code> attributes.</p>
+            </div>
+            <span class="badge uol-badge-orange px-3 py-2">Fall 2026 Timetable</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle mb-0">
+              <thead class="uol-table-head text-white">
+                <tr>
+                  <th>Faculty / Wing</th>
+                  <th>Day</th>
+                  <th>08:30 AM – 10:00 AM</th>
+                  <th>10:00 AM – 11:30 AM</th>
+                  <th>11:30 AM – 01:00 PM</th>
+                  <th>Room / Lab</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- rowspan="3" merges Faculty of Computing & IT vertically across Monday, Tuesday, Wednesday -->
+                <tr>
+                  <td rowspan="3" class="fw-bold bg-light text-success">
+                    Faculty of Computing &amp; IT<br>
+                    <small class="text-muted fw-normal">(BSCS / BSIT — Sem 5)</small>
+                  </td>
+                  <td class="fw-semibold">Monday</td>
+                  <td>CS-301: Web Tech (Engr. Usman)</td>
+                  <td>CS-204: Database (Dr. Tariq)</td>
+                  <td>HUM-201: Technical Writing</td>
+                  <td>Ground Floor — GF-01</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">Tuesday</td>
+                  <td>CS-312: AI (Dr. Ayesha)</td>
+                  <!-- colspan="2" merges two 1.5-hour slots into a 3-hour Continuous Practical Lab -->
+                  <td colspan="2" class="table-success fw-semibold text-center">
+                    💻 CS-301L: Web Technologies &amp; Portal Design Lab (3-Hour Practical — Engr. Usman)
+                  </td>
+                  <td>Computing Lab 1 (GF)</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">Wednesday</td>
+                  <td>CS-204: Database (Dr. Tariq)</td>
+                  <td>CS-312: AI (Dr. Ayesha)</td>
+                  <td>CS-301: Web Tech (Engr. Usman)</td>
+                  <td>Computing Lab 2</td>
+                </tr>
+
+                <!-- rowspan="2" merges Faculty of Management & Sciences vertically across Thursday & Friday -->
+                <tr>
+                  <td rowspan="2" class="fw-bold bg-light text-success">
+                    Faculty of Management &amp; Sciences<br>
+                    <small class="text-muted fw-normal">(BBA / BS Agriculture)</small>
+                  </td>
+                  <td class="fw-semibold">Thursday</td>
+                  <td>BBA-201: Entrepreneurship (Dr. Kamran)</td>
+                  <td>MGT-302: Financial Analysis</td>
+                  <td>AGR-105: Plant Sciences</td>
+                  <td>Block B — GF-04</td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold">Friday</td>
+                  <!-- colspan="2" merges Morning Seminar & Field Research across two time columns -->
+                  <td colspan="2" class="table-warning fw-semibold text-center">
+                    🌿 Joint Industry Seminar &amp; Agricultural Research Field Workshop (Dr. Kamran)
+                  </td>
+                  <td>Jumma Break (01:00 PM)</td>
+                  <td>Main Auditorium (GF)</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <!-- colspan="6" merges all 6 columns across the table footer -->
+                <tr class="uol-table-footer text-center fw-semibold">
+                  <td colspan="6">
+                    📌 Note: Minimum 75% lecture attendance is required. For disabled students, all classes are arranged
+                    on the <strong>Ground Floor (GF)</strong>.
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COURSES SECTION (Task 3: Bootstrap Cards + Task 4: #6 Add Course Persisted in LocalStorage, #7 Search Course, #8 Course Counter) -->
+    <section id="courses" class="py-5">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+          <div>
+            <h2 class="section-title fw-bold mb-1">Available University Courses</h2>
+            <p class="text-muted mb-0">Filter courses using instant search or add a new course card (permanently saved
+              in LocalStorage).</p>
+          </div>
+          <!-- Task 4 (#8): Live Counter displaying total available courses -->
+          <div class="course-counter-badge px-4 py-2">
+            Total Available Courses: <span id="courseCountBadge" class="badge bg-warning text-dark fs-6 ms-1">4</span>
+          </div>
+        </div>
+
+        <!-- Task 4 (#7): Instant Course Search Bar & Task 4 (#6): Dynamic Course Addition Form -->
+        <div class="row g-4 mb-4">
+          <!-- Search Filter Box -->
+          <div class="col-lg-5">
+            <div class="uol-panel p-3 h-100 d-flex flex-column justify-content-center">
+              <label for="courseSearchInput" class="form-label fw-bold text-success mb-2">
+                🔍 Instant Course Search (Title, Code, or Department):
+              </label>
+              <div class="input-group">
+                <input type="search" id="courseSearchInput" class="form-control"
+                  placeholder="Type e.g. Web, CS-301, Database, AI...">
+                <button id="clearSearchBtn" class="btn btn-outline-secondary" type="button">Reset</button>
+              </div>
+              <small id="searchStatusText" class="text-muted mt-2">Showing all available courses.</small>
+            </div>
+          </div>
+
+          <!-- Dynamic Course Addition Box -->
+          <div class="col-lg-7">
+            <div class="uol-panel p-3 h-100">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h3 class="h6 fw-bold text-success mb-0">➕ Add a New Course Dynamically (Saved in LocalStorage)</h3>
+                <button type="button" id="resetCoursesBtn" class="btn btn-sm btn-outline-danger py-0 px-2"
+                  style="font-size: 0.75rem;">Reset Added Courses</button>
+              </div>
+              <form id="addCourseForm" class="row g-2">
+                <div class="col-sm-3">
+                  <input type="text" id="newCourseCode" class="form-control form-control-sm"
+                    placeholder="Code (e.g. CS-405)" required>
+                </div>
+                <div class="col-sm-5">
+                  <input type="text" id="newCourseTitle" class="form-control form-control-sm"
+                    placeholder="Title (e.g. Software Engineering)" required>
+                </div>
+                <div class="col-sm-4">
+                  <select id="newCourseDept" class="form-select form-select-sm" required>
+                    <option value="BS Computer Science">BS Computer Science</option>
+                    <option value="BS Information Technology">BS Information Technology</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Agriculture Sciences">Agriculture Sciences</option>
+                  </select>
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" id="newCourseDesc" class="form-control form-control-sm"
+                    placeholder="Short course description &amp; instructor..." required>
+                </div>
+                <div class="col-sm-4 d-grid">
+                  <button type="submit" class="btn btn-sm uol-btn-orange">Add &amp; Save Course</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task 3: Bootstrap Grid Row holding Course Cards -->
+        <div id="coursesContainer" class="row g-4">
+          <!-- Course Card 1 -->
+          <div class="col-md-6 col-lg-4 course-card-item">
+            <div class="card h-100 uol-course-card">
+              <div class="card-header uol-card-header d-flex justify-content-between align-items-center">
+                <span class="badge bg-white text-success fw-bold course-code">CS-301</span>
+                <span class="badge uol-badge-orange">3 Credit Hrs</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold course-title">Web Technologies &amp; Portal Design</h3>
+                <p class="text-muted small mb-2 course-dept">Department: BS Computer Science | Instructor: Engr. Usman
+                  Ghani (MS SE)</p>
+                <p class="card-text course-desc flex-grow-1">
+                  Build responsive web portals using HTML5, CSS3, Bootstrap 5 grid system, and interactive JavaScript
+                  DOM manipulation.
+                </p>
+                <a href="#registration" class="btn uol-btn-green btn-sm mt-2">Select in Registration</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Card 2 -->
+          <div class="col-md-6 col-lg-4 course-card-item">
+            <div class="card h-100 uol-course-card">
+              <div class="card-header uol-card-header d-flex justify-content-between align-items-center">
+                <span class="badge bg-white text-success fw-bold course-code">CS-204</span>
+                <span class="badge uol-badge-orange">4 Credit Hrs</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold course-title">Database Management Systems</h3>
+                <p class="text-muted small mb-2 course-dept">Department: BS Computer Science | Instructor: Prof. Dr.
+                  Tariq Mehmood (PhD CS)</p>
+                <p class="card-text course-desc flex-grow-1">
+                  Design ER diagrams, relational schemas, SQL queries, normalization, and enterprise database storage
+                  architectures.
+                </p>
+                <a href="#registration" class="btn uol-btn-green btn-sm mt-2">Select in Registration</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Card 3 -->
+          <div class="col-md-6 col-lg-4 course-card-item">
+            <div class="card h-100 uol-course-card">
+              <div class="card-header uol-card-header d-flex justify-content-between align-items-center">
+                <span class="badge bg-white text-success fw-bold course-code">CS-312</span>
+                <span class="badge uol-badge-orange">3 Credit Hrs</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold course-title">Artificial Intelligence &amp; Machine Learning</h3>
+                <p class="text-muted small mb-2 course-dept">Department: BS Information Technology | Instructor: Dr.
+                  Ayesha Siddiqa (PhD AI)</p>
+                <p class="card-text course-desc flex-grow-1">
+                  Study intelligent search algorithms, knowledge representation, neural networks, and modern AI
+                  applications.
+                </p>
+                <a href="#registration" class="btn uol-btn-green btn-sm mt-2">Select in Registration</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Card 4 -->
+          <div class="col-md-6 col-lg-4 course-card-item">
+            <div class="card h-100 uol-course-card">
+              <div class="card-header uol-card-header d-flex justify-content-between align-items-center">
+                <span class="badge bg-white text-success fw-bold course-code">BBA-201</span>
+                <span class="badge uol-badge-orange">3 Credit Hrs</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5 fw-bold course-title">Entrepreneurship &amp; Digital Commerce</h3>
+                <p class="text-muted small mb-2 course-dept">Department: Business Administration | Instructor: Dr.
+                  Kamran Abbas (PhD)</p>
+                <p class="card-text course-desc flex-grow-1">
+                  Learn startup management, financial planning, and digital marketing strategies tailored for regional
+                  growth.
+                </p>
+                <a href="#registration" class="btn uol-btn-green btn-sm mt-2">Select in Registration</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION SECTION & STUDENT-RELATED FAQ ACCORDION -->
+    <section id="registration" class="py-5 section-alt-bg">
+      <div class="container">
+        <div class="row g-5">
+
+          <!-- Task 1, Task 3, Task 4 (#4, #5, #9): Comprehensive Student Registration Form -->
+          <div class="col-lg-7">
+            <div class="uol-panel p-4">
+              <div class="d-flex align-items-center gap-3 mb-3 pb-2 border-bottom">
+                <img src="images/uol-logo.svg" alt="University of Layyah Registration Form Emblem" width="48"
+                  height="48">
+                <div>
+                  <h2 class="h4 fw-bold text-success mb-0">Student Course Registration Form</h2>
+                  <p class="text-muted small mb-0">Real-time field validation &amp; automatic Admin Dashboard enrollment
+                  </p>
+                </div>
+              </div>
+
+              <!-- Form Validation Error Alert Box -->
+              <div id="formErrorAlert" class="alert alert-danger d-none" role="alert"></div>
+
+              <!-- Task 4 (#5): Prominent Success Banner showing Student Name right after registration -->
+              <div id="formSuccessBanner" class="alert alert-success d-none shadow-sm" role="alert">
+                ✅ <strong>Registration Successful!</strong> Welcome, <span id="registeredStudentBannerName"
+                  class="fw-bold text-decoration-underline"></span>! Your application has been added to the <a
+                  href="#admin-dashboard" class="alert-link">Admin Applied Students Dashboard</a> below.
+              </div>
+
+              <form id="studentRegForm" novalidate>
+                <div class="row g-3">
+                  <!-- Text Input: Full Name -->
+                  <div class="col-md-6">
+                    <label for="studentName" class="form-label fw-semibold">Student Full Name *</label>
+                    <input type="text" id="studentName" class="form-control"
+                      placeholder="e.g. Muhammad Abu Bakkar Nadeem" required>
+                    <div id="err-studentName" class="invalid-feedback">Please enter Student Full Name (at least 3
+                      letters, no digits).</div>
+                  </div>
+
+                  <!-- Text Input: Father Name -->
+                  <div class="col-md-6">
+                    <label for="fatherName" class="form-label fw-semibold">Father / Guardian Name *</label>
+                    <input type="text" id="fatherName" class="form-control" placeholder="e.g. Nadeem Nazir" required>
+                    <div id="err-fatherName" class="invalid-feedback">Please enter Father/Guardian Name (at least 3
+                      letters).</div>
+                  </div>
+
+                  <!-- Text Input: Roll Number -->
+                  <div class="col-md-6">
+                    <label for="studentRoll" class="form-label fw-semibold">University Roll No *</label>
+                    <input type="text" id="studentRoll" class="form-control" placeholder="e.g. BSCSM-A-24-46" required>
+                    <div id="err-studentRoll" class="invalid-feedback">Please enter a valid University Roll No (minimum
+                      4 characters).</div>
+                  </div>
+
+                  <!-- Email Input -->
+                  <div class="col-md-6">
+                    <label for="studentEmail" class="form-label fw-semibold">Official Email Address *</label>
+                    <input type="email" id="studentEmail" class="form-control" placeholder="e.g. nabubakar021@gmail.com"
+                      required>
+                    <div id="err-studentEmail" class="invalid-feedback">Please enter a valid email address (e.g.
+                      name@domain.com).</div>
+                  </div>
+
+                  <!-- Tel Input: Strict 11 Digits Only (Blocks alphabets & >11 digits) -->
+                  <div class="col-md-6">
+                    <label for="studentPhone" class="form-label fw-semibold">Phone Number (Strictly 11 Digits) *</label>
+                    <input type="tel" id="studentPhone" class="form-control" placeholder="03023385400" maxlength="11"
+                      inputmode="numeric" required>
+                    <small id="phoneLiveHint" class="form-text text-muted">Digits only (03XXXXXXXXX — 11/11
+                      digits).</small>
+                    <div id="err-studentPhone" class="invalid-feedback">Phone number must be exactly 11 digits (numbers
+                      only, no alphabets).</div>
+                  </div>
+
+                  <!-- Date Input -->
+                  <div class="col-md-6">
+                    <label for="studentDOB" class="form-label fw-semibold">Date of Birth *</label>
+                    <input type="date" id="studentDOB" class="form-control" required>
+                    <div id="err-studentDOB" class="invalid-feedback">Please select your Date of Birth.</div>
+                  </div>
+
+                  <!-- Number Input -->
+                  <div class="col-md-6">
+                    <label for="studentSemester" class="form-label fw-semibold">Current Semester (1 - 8) *</label>
+                    <input type="number" id="studentSemester" class="form-control" min="1" max="8" placeholder="e.g. 5"
+                      required>
+                    <div id="err-studentSemester" class="invalid-feedback">Semester must be a number between 1 and 8.
+                    </div>
+                  </div>
+
+                  <!-- Select Dropdown: Course Selection -->
+                  <div class="col-md-6">
+                    <label for="studentCourse" class="form-label fw-semibold">Select Course to Enroll *</label>
+                    <select id="studentCourse" class="form-select" required>
+                      <option value="">-- Choose a Course --</option>
+                      <option value="CS-301: Web Technologies & Portal Design">CS-301: Web Technologies &amp; Portal
+                        Design</option>
+                      <option value="CS-204: Database Management Systems">CS-204: Database Management Systems</option>
+                      <option value="CS-312: Artificial Intelligence & Machine Learning">CS-312: Artificial Intelligence
+                        &amp; Machine Learning</option>
+                      <option value="BBA-201: Entrepreneurship & Digital Commerce">BBA-201: Entrepreneurship &amp;
+                        Digital Commerce</option>
+                    </select>
+                    <div id="err-studentCourse" class="invalid-feedback">Please select a course from the list.</div>
+                  </div>
+
+                  <!-- Radio Inputs: Study Shift -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold d-block">Study Shift *</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="studyShift" id="shiftMorning" value="Morning"
+                        checked>
+                      <label class="form-check-label" for="shiftMorning">Morning</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="studyShift" id="shiftEvening" value="Evening">
+                      <label class="form-check-label" for="shiftEvening">Evening</label>
+                    </div>
+                  </div>
+
+                  <!-- Optional Disability Status (Yes / No) with Dynamic Ground-Floor Alert -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold d-block">Special Needs / Disability (Optional)</label>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="disabilityStatus" id="disabilityNo" value="No"
+                        checked>
+                      <label class="form-check-label" for="disabilityNo">No</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="disabilityStatus" id="disabilityYes"
+                        value="Yes">
+                      <label class="form-check-label fw-semibold text-success" for="disabilityYes">Yes (Ground Floor
+                        Request)</label>
+                    </div>
+                  </div>
+
+                  <!-- Conditional Ground Floor Accommodation Note (Appears when Disability = Yes) -->
+                  <div id="disabilityGroundFloorNote" class="col-12 d-none">
+                    <div class="alert alert-info border-start border-4 border-success py-2 px-3 mb-0 small">
+                      ♿ <strong>Special Accommodation Notice:</strong> For disabled students, all classes and practical
+                      labs will be arranged on the <strong>Ground Floor (GF)</strong> with ramp access.
+                    </div>
+                  </div>
+
+                  <!-- Checkbox Input: Terms Agreement -->
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                      <label class="form-check-label fw-semibold" for="agreeTerms">
+                        I confirm that the provided information is accurate according to UOL CMS academic rules *
+                      </label>
+                      <div id="err-agreeTerms" class="invalid-feedback">You must confirm the UOL academic rules before
+                        submitting.</div>
+                    </div>
+                  </div>
+
+                  <!-- Textarea -->
+                  <div class="col-12">
+                    <label for="studentNotes" class="form-label fw-semibold">Advisor / Lab Preference Notes
+                      (Optional)</label>
+                    <textarea id="studentNotes" class="form-control" rows="2"
+                      placeholder="Optional notes regarding lab group or scholarship..."></textarea>
+                  </div>
+
+                  <!-- Submit & Reset Buttons -->
+                  <div class="col-12 d-flex flex-wrap gap-2 pt-2">
+                    <button type="submit" class="btn uol-btn-green px-4">✅ Submit Registration</button>
+                    <button type="reset" id="resetFormBtn" class="btn btn-outline-secondary">Reset Form</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Task 3: Bootstrap Accordion for Student-Related Frequently Asked Questions (FAQ) -->
+          <div class="col-lg-5">
+            <div class="uol-panel p-4 h-100">
+              <h2 class="h4 fw-bold text-success mb-2">❓ Student Frequently Asked Questions</h2>
+              <p class="text-muted small mb-4">Important academic, faculty, scholarship, and portal answers for UL
+                students.</p>
+
+              <div class="accordion" id="uolFaqAccordion">
+                <!-- FAQ Item 1: Teachers & Faculty Qualifications -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="faqHeadingOne">
+                    <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                      1. What are the qualifications of University of Layyah teachers?
+                    </button>
+                  </h3>
+                  <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne"
+                    data-bs-parent="#uolFaqAccordion">
+                    <div class="accordion-body small">
+                      University of Layyah has <strong>160+ highly qualified faculty members</strong>, including foreign
+                      and local <strong>PhD Doctors, HEC-Approved Research Supervisors, and Gold Medalist MS/MPhil
+                        scholars</strong> from top institutions (UK, NUST, COMSATS, UAF, and PU).
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 2: Scholarships & Financial Aid -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="faqHeadingTwo">
+                    <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                      2. Which scholarships are available for students at UL?
+                    </button>
+                  </h3>
+                  <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo"
+                    data-bs-parent="#uolFaqAccordion">
+                    <div class="accordion-body small">
+                      Deserving and high-achieving students can apply for the <strong>Chief Minister Honhaar Merit
+                        Scholarship, Punjab Educational Endowment Fund (PEEF), HEC Need-Based Scholarship</strong>, and
+                      kinship fee concessions.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 3: Attendance, Credit Hours & Ground-Floor Facility -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="faqHeadingThree">
+                    <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                      3. What is the attendance rule and facility for disabled students?
+                    </button>
+                  </h3>
+                  <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree"
+                    data-bs-parent="#uolFaqAccordion">
+                    <div class="accordion-body small">
+                      Minimum <strong>75% class attendance</strong> is mandatory to sit in final semester exams. For
+                      students who select <strong>Disability: Yes</strong> during registration, all lectures and labs
+                      are arranged on the <strong>Ground Floor (GF)</strong>.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Summary Card inside FAQ column -->
+              <div class="mt-4 p-3 rounded border border-success bg-light" id="savedRecordBox">
+                <h4 class="h6 fw-bold text-success mb-1">💾 LocalStorage Database Status</h4>
+                <p id="localStorageSummary" class="small mb-2 text-muted">
+                  No students registered yet (0 Applied). Fill out the form to register!
+                </p>
+                <a href="#admin-dashboard" class="btn btn-sm uol-btn-green w-100">Open Admin Student Records &amp;
+                  Profiles ↓</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMIN APPLIED STUDENTS DASHBOARD & STUDENT PROFILE VIEWER -->
+    <section id="admin-dashboard" class="py-5">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+          <div>
+            <span class="badge uol-badge-orange mb-1">Admin &amp; Registrar Portal View</span>
+            <h2 class="section-title fw-bold mb-1 d-block">Applied Students Dashboard &amp; Profile Records</h2>
+            <p class="text-muted mb-0">Track total student applications, ground-floor accommodations, and inspect
+              individual student profiles.</p>
+          </div>
+          <button id="clearAllRecordsBtn" class="btn btn-sm btn-outline-danger" type="button">
+            🗑️ Clear All Records (Reset to 0)
+          </button>
+        </div>
+
+        <!-- Admin Dashboard Summary Counters (Starts at 0 until you register) -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-lg-3">
+            <div class="admin-stat-card p-3 rounded-3 border bg-white shadow-sm">
+              <span class="small text-muted fw-semibold d-block">Total Students Applied</span>
+              <div class="d-flex justify-content-between align-items-center mt-1">
+                <h3 id="statTotalStudents" class="h2 fw-bold text-success mb-0">0</h3>
+                <span class="fs-3">🎓</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="admin-stat-card p-3 rounded-3 border bg-white shadow-sm">
+              <span class="small text-muted fw-semibold d-block">Morning / Evening Shift</span>
+              <div class="d-flex justify-content-between align-items-center mt-1">
+                <h3 id="statShiftBreakdown" class="h4 fw-bold text-warning mb-0">0 M / 0 E</h3>
+                <span class="fs-3">🕘</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="admin-stat-card p-3 rounded-3 border bg-white shadow-sm">
+              <span class="small text-muted fw-semibold d-block">Ground-Floor (Disability)</span>
+              <div class="d-flex justify-content-between align-items-center mt-1">
+                <h3 id="statDisabilityCount" class="h2 fw-bold text-primary mb-0">0</h3>
+                <span class="fs-3">♿</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="admin-stat-card p-3 rounded-3 border bg-white shadow-sm">
+              <span class="small text-muted fw-semibold d-block">Latest Applicant</span>
+              <div class="d-flex justify-content-between align-items-center mt-1">
+                <h3 id="statLatestStudent" class="h6 fw-bold text-success mb-0 text-truncate" style="max-width: 170px;">
+                  None Yet</h3>
+                <span class="fs-3">📋</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: Applied Students List Table (Admin View) -->
+          <div class="col-lg-7">
+            <div class="uol-panel p-4 h-100">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+                <h3 class="h5 fw-bold text-success mb-0">📋 Registered Student Applications</h3>
+                <span class="badge bg-success">Click "View Profile" to Inspect</span>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle small mb-0">
+                  <thead class="uol-table-head text-white">
+                    <tr>
+                      <th>#</th>
+                      <th>Student Name &amp; Roll No</th>
+                      <th>Enrolled Course</th>
+                      <th>Room / Floor</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="appliedStudentsTableBody">
+                    <!-- Populated dynamically via script.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Selected Student Profile Inspector Card -->
+          <div class="col-lg-5">
+            <!-- Empty State when 0 students have applied -->
+            <div id="emptyProfileState"
+              class="uol-panel p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center">
+              <img src="images/uol-logo.svg" alt="University of Layyah Empty Profile Placeholder Logo" width="70"
+                height="70" class="mb-3 opacity-75">
+              <h3 class="h5 fw-bold text-success mb-1">No Student Profile Selected</h3>
+              <p class="small text-muted mb-3">
+                Currently <strong>0 students</strong> have applied. Fill and submit the <strong>Student Course
+                  Registration Form</strong> above to see the student's full profile card here!
+              </p>
+              <a href="#registration" class="btn btn-sm uol-btn-orange">📝 Register First Student</a>
+            </div>
+
+            <!-- Populated Profile Card (Revealed as soon as a student registers) -->
+            <div id="studentWelcomeAlert" class="uol-profile-card h-100 bg-white d-none">
+              <div class="uol-profile-topbar d-flex justify-content-between align-items-center px-3 py-2">
+                <span class="fw-bold text-white small">👤 Student Profile Inspector (CMS Record)</span>
+                <span id="displayPortalStatus" class="badge bg-warning text-dark">Verified Record</span>
+              </div>
+
+              <div class="uol-profile-banner p-3">
+                <div class="d-flex align-items-center justify-content-between gap-3">
+                  <div>
+                    <!-- Task 4 (#5): Student Name displayed prominently in exact user input casing -->
+                    <h3 id="displayStudentName" class="h5 fw-bold text-white mb-1">-</h3>
+                    <p id="displayStudentProgram" class="small text-light mb-2">-</p>
+                    <span id="displayStudentRoll" class="badge bg-warning text-dark">Roll No: -</span>
+                  </div>
+                  <div class="bg-white p-2 rounded shadow-sm text-center flex-shrink-0">
+                    <img src="images/uol-logo.svg" alt="University of Layyah Verified Student ID Badge" width="54"
+                      height="54">
+                    <small class="d-block fw-bold text-success mt-1" style="font-size: 0.65rem;">UL CMS ID</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="uol-profile-details p-3">
+                <div class="row g-2 small">
+                  <div class="col-6">
+                    <span class="text-muted d-block">Father / Guardian:</span>
+                    <strong id="displayFatherName">-</strong>
+                  </div>
+                  <div class="col-6">
+                    <span class="text-muted d-block">Date of Birth:</span>
+                    <strong id="displayStudentDOB">-</strong>
+                  </div>
+                  <div class="col-6">
+                    <span class="text-muted d-block">Email Address:</span>
+                    <strong id="displayStudentEmail" class="text-break">-</strong>
+                  </div>
+                  <div class="col-6">
+                    <span class="text-muted d-block">Phone Number:</span>
+                    <strong id="displayStudentPhone">-</strong>
+                  </div>
+                  <div class="col-12 pt-1 border-top">
+                    <span class="text-muted d-block">Enrolled Course:</span>
+                    <strong id="displayStudentCourse" class="text-success">-</strong>
+                  </div>
+                  <div class="col-12 pt-1 border-top">
+                    <span class="text-muted d-block">Disability / Classroom Arrangement:</span>
+                    <strong id="displayDisabilityArrangement" class="text-dark">-</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Task 3: Bootstrap Modal for Registration Confirmation -->
+  <div class="modal fade" id="registrationConfirmModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header uol-modal-header text-white">
+          <h5 class="modal-title fw-bold" id="modalTitle">✅ Enrollment Confirmed — University of Layyah</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="images/uol-logo.svg" alt="University of Layyah Confirmation Modal Logo" width="54" height="54"
+              class="border rounded p-1">
+            <div>
+              <p class="mb-0">Congratulations <strong id="modalStudentName" class="text-success"></strong>!</p>
+              <small class="text-muted">Your application has been added to the Admin Dashboard.</small>
+            </div>
+          </div>
+          <ul class="list-group list-group-flush small">
+            <li class="list-group-item"><strong>Roll Number:</strong> <span id="modalStudentRoll"></span></li>
+            <li class="list-group-item"><strong>Father Name:</strong> <span id="modalFatherName"></span></li>
+            <li class="list-group-item"><strong>Email &amp; Phone:</strong> <span id="modalStudentEmail"></span></li>
+            <li class="list-group-item"><strong>Registered Course:</strong> <span id="modalStudentCourse"
+                class="text-success fw-bold"></span></li>
+            <li class="list-group-item"><strong>Semester &amp; Shift:</strong> <span id="modalStudentMeta"></span></li>
+            <li class="list-group-item"><strong>Classroom Arrangement:</strong> <span id="modalDisabilityNote"></span>
+            </li>
+          </ul>
+          <div class="alert alert-success small mt-3 mb-0">
+            💾 Saved in <strong>LocalStorage</strong>! You can view all applied students and profiles in the
+            <strong>Admin Dashboard</strong> section.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="modalGoToDashboardBtn" class="btn uol-btn-orange" data-bs-dismiss="modal">Go to Admin Dashboard ↓</button>
+          <button type="button" class="btn uol-btn-green" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task 1: Semantic <footer> with Contact Info -->
+  <footer id="contact" class="uol-footer text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 align-items-center justify-content-between">
+        <div class="col-md-7">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="images/uol-logo.svg" alt="University of Layyah Official Footer Emblem" width="56" height="56"
+              class="bg-white rounded p-1">
+            <div>
+              <h4 class="h5 fw-bold text-warning mb-0">UNIVERSITY OF LAYYAH</h4>
+              <small class="text-light">Established 2022 | HEC Recognized Public University</small>
+            </div>
+          </div>
+          <p class="small mb-2">
+            Official University of Layyah Student Portal providing online course enrollment, weekly academic timetables,
+            and student profile management.
+          </p>
+          <p class="small mb-0">
+            📍 <strong>Address:</strong> Main Academic Campus, Katchery Road / College Road, Layyah, Punjab, Pakistan.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <h4 class="h6 fw-bold text-warning text-uppercase mb-3">University Helpdesk &amp; Contact</h4>
+          <p class="small mb-1">📞 <strong>Registrar Office:</strong> +92 (0606) 920145</p>
+          <p class="small mb-1">✉️ <strong>Official Email:</strong> <a href="mailto:info@ul.edu.pk"
+              class="text-warning">info@ul.edu.pk</a></p>
+          <p class="small mb-0">🕘 <strong>Office Hours:</strong> Monday – Friday (8:00 AM – 4:00 PM)</p>
+        </div>
+      </div>
+      <hr class="border-light my-4">
+      <div class="text-center small">
+        <p class="mb-0">&copy; 2026 <strong>University of Layyah (UL)</strong> – Official Student Portal. All Rights
+          Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Task 3: Bootstrap 5.3 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Task 4: External JavaScript File -->
+  <script src="script.js"></script>
+</body>
+
+</html>

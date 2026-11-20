@@ -1,0 +1,444 @@
+/* ==========================================================================
+   University of Layyah (UL) - Official Student Portal Stylesheet (style.css)
+   Theme Palette:
+   - Warm Off-White / Cream Background: #fdfbf7 & #f5f2eb
+   - Deep Forest Green Navbar, Headers & Accents: #1f7a38 & #145926
+   - Warm Orange / Amber Action Buttons & Highlights: #f39019 & #d97706
+   - Official Profile Banner Slate: #829182
+   ========================================================================== */
+
+/* 1. ELEMENT SELECTORS (Task 2) */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+section[id],
+footer[id] {
+    scroll-margin-top: 85px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdfbf7;
+    color: #212529;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    letter-spacing: -0.3px;
+}
+
+a {
+    transition: all 0.25s ease;
+}
+
+/* Smooth Entrance Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.55s ease-out both;
+}
+
+/* 2. ID SELECTORS (Task 2) */
+#top-bar {
+    background-color: #145926;
+    color: #ffffff;
+    border-bottom: 2px solid #f39019;
+}
+
+/* Task 2: position: sticky on the main navigation header */
+#main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+}
+
+#portalMainHeading {
+    color: #1f7a38;
+    line-height: 1.25;
+}
+
+/* 3. CLASS SELECTORS & NAVBAR HOVER / ACTIVE MOVEMENT (Task 2) */
+.uol-navbar {
+    background-color: #1f7a38;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.uol-navbar .nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+    padding: 0.5rem 0.95rem !important;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* When hovering over the navbar list, only the hovered link turns orange/yellow (moves with cursor!) */
+.uol-navbar .navbar-nav:hover .nav-link.active:not(:hover) {
+    background-color: transparent;
+}
+
+.uol-navbar .nav-link:hover,
+.uol-navbar .nav-link.active {
+    background-color: #f39019;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+/* Hero Emblem Card */
+.hero-emblem-card {
+    border-top: 5px solid #1f7a38 !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-emblem-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(31, 122, 56, 0.14) !important;
+}
+
+/* Official UL Student Profile Inspector Card (In Admin Dashboard) */
+#admin-dashboard {
+    min-height: 560px;
+}
+
+#admin-dashboard .uol-panel {
+    min-height: 380px;
+}
+
+.uol-profile-card {
+    border: 2px solid #1f7a38;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(31, 122, 56, 0.12);
+}
+
+.uol-profile-topbar {
+    background-color: #1f7a38;
+    border-bottom: 2px solid #f39019;
+}
+
+.uol-profile-banner {
+    background-color: #829182;
+    color: #ffffff;
+}
+
+/* Admin Stat Cards */
+.admin-stat-card {
+    border-left: 5px solid #1f7a38 !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(31, 122, 56, 0.12) !important;
+}
+
+/* Hero & Alternating Section Backgrounds (Warm Cream & Soft Sage) */
+.hero-section {
+    background: linear-gradient(135deg, #fdfbf7 0%, #f5f2eb 55%, #eaf3ec 100%);
+    border-bottom: 1px solid #e2dfd7;
+}
+
+.section-alt-bg {
+    background-color: #f5f2eb;
+    border-top: 1px solid #e6e2d8;
+    border-bottom: 1px solid #e6e2d8;
+}
+
+.section-title {
+    color: #1f7a38;
+    display: inline-block;
+    border-bottom: 3px solid #f39019;
+    padding-bottom: 6px;
+}
+
+.uol-pill-badge {
+    background-color: #fff8eb;
+    color: #1f7a38;
+    border: 1px solid #f39019;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* Custom Buttons (UL Forest Green & Warm Orange/Amber) + Hover Effects (Task 2) */
+.uol-btn-orange {
+    background-color: #f39019;
+    color: #ffffff;
+    border: 2px solid #f39019;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.uol-btn-orange:hover {
+    background-color: #d97706;
+    border-color: #d97706;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(243, 144, 25, 0.35);
+}
+
+.uol-btn-green {
+    background-color: #1f7a38;
+    color: #ffffff;
+    border: 2px solid #1f7a38;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.uol-btn-green:hover {
+    background-color: #145926;
+    border-color: #145926;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(31, 122, 56, 0.35);
+}
+
+.uol-badge-orange {
+    background-color: #f39019;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Task 2: border-radius and box-shadow on Panels & Cards */
+.uol-panel {
+    background-color: #ffffff;
+    border: 1px solid #e2dfd7;
+    border-top: 4px solid #1f7a38;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* Task 2: Flexbox Layout for University Key Statistics */
+.uol-flex-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.highlight-box {
+    flex: 1 1 210px;
+    background-color: #ffffff;
+    border: 1px solid #e2dfd7;
+    border-left: 5px solid #f39019;
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(31, 122, 56, 0.14);
+}
+
+/* Task 2: CSS Grid Layout for Official CMS Portal Modules */
+.uol-grid-modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.grid-module-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background-color: #ffffff;
+    border: 1px solid #e2dfd7;
+    border-top: 3px solid #1f7a38;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grid-module-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(31, 122, 56, 0.12);
+}
+
+.module-icon {
+    font-size: 1.65rem;
+    background-color: #fff5e6;
+    border: 1px solid #f39019;
+    border-radius: 8px;
+    padding: 6px 10px;
+    line-height: 1;
+}
+
+/* Lists & Weekly Schedule Table Styling */
+.uol-list li {
+    margin-bottom: 8px;
+}
+
+.uol-table-head {
+    background-color: #1f7a38;
+}
+
+.uol-table-footer {
+    background-color: #fff5e6;
+    color: #145926;
+}
+
+/* Course Cards & Counter Badge */
+.course-counter-badge {
+    background-color: #1f7a38;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.uol-course-card {
+    background-color: #ffffff;
+    border: 1px solid #e2dfd7;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.uol-course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(31, 122, 56, 0.18);
+}
+
+.uol-card-header {
+    background-color: #1f7a38;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+}
+
+/* Modal & Footer */
+.uol-modal-header {
+    background-color: #1f7a38;
+    border-bottom: 3px solid #f39019;
+}
+
+.uol-footer {
+    background-color: #145926;
+    border-top: 4px solid #f39019;
+    min-height: 320px;
+}
+
+/* ==========================================================================
+   TASK 4 (#3): DARK MODE STYLING
+   Toggled dynamically via document.body.classList.toggle('dark-mode')
+   ========================================================================== */
+body.dark-mode {
+    background-color: #111713;
+    color: #e4ece6;
+}
+
+body.dark-mode .hero-section,
+body.dark-mode .section-alt-bg {
+    background: #17201a;
+    border-color: #2b3a2e;
+}
+
+body.dark-mode #portalMainHeading,
+body.dark-mode .section-title,
+body.dark-mode .text-success {
+    color: #66bb6a !important;
+}
+
+body.dark-mode .uol-panel,
+body.dark-mode .highlight-box,
+body.dark-mode .grid-module-card,
+body.dark-mode .admin-stat-card,
+body.dark-mode .uol-course-card,
+body.dark-mode .uol-profile-card,
+body.dark-mode .uol-profile-details,
+body.dark-mode .hero-emblem-card,
+body.dark-mode .accordion-item,
+body.dark-mode .accordion-button,
+body.dark-mode .modal-content,
+body.dark-mode .list-group-item,
+body.dark-mode #savedRecordBox {
+    background-color: #1e2b22 !important;
+    color: #e4ece6 !important;
+    border-color: #324738 !important;
+}
+
+body.dark-mode .text-muted,
+body.dark-mode .text-dark {
+    color: #b0c4b4 !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #141d17;
+    color: #ffffff;
+    border-color: #3a5240;
+}
+
+body.dark-mode .table {
+    color: #e4ece6;
+    border-color: #324738;
+}
+
+body.dark-mode .table-light,
+body.dark-mode .bg-light {
+    background-color: #243328 !important;
+    color: #e4ece6 !important;
+}
+
+/* ==========================================================================
+   TASK 2 & TASK 5: MEDIA QUERIES FOR TABLET & MOBILE SCREENS
+   Ensures zero horizontal scrolling and clean stacking on smaller devices
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .uol-navbar .navbar-collapse {
+        background-color: #18632d;
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #top-bar .container {
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    #portalMainHeading {
+        font-size: 1.75rem;
+    }
+
+    .uol-flex-highlights {
+        flex-direction: column;
+    }
+
+    .highlight-box {
+        flex: 1 1 100%;
+    }
+
+    .course-counter-badge {
+        width: 100%;
+        text-align: center;
+    }
+}
