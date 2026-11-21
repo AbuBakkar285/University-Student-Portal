@@ -4,7 +4,6 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Bootstrap 5](https://img.shields.io/badge/Bootstrap_5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript_ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 A fully responsive, modern, and accessible **University Student Portal and Academic Management System (CMS)** developed for the **University of Layyah (UL)** (Government of Punjab — Chartered Public University, Est. 2022, HEC Recognized). 
 
@@ -172,4 +171,4 @@ University Student Portal/
 - **Institution:** University of Layyah (UL), Punjab, Pakistan.
 - **Course / Module:** Web Technologies & Portal Design.
 - **Developed by:** Muhammad Abu Bakkar Nadeem (BS Computer Science).
-- **License:** Open for academic demonstration and learning under the [MIT License](LICENSE).
+- **Academic Notice:** This repository is an individual student project developed solely for academic demonstration, evaluation, and grading. All intellectual rights and academic credits belong to the author and the University of Layyah. It is not licensed for commercial distribution or unauthorized plagiarism.
